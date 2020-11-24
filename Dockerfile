@@ -20,4 +20,5 @@ WORKDIR /dist
 RUN cp /build/app .
 # 声明服务端口
 EXPOSE 8888
-CMD ["/dist/app"]
+RUN mv /dist/app /usr/bin/app
+CMD ["/usr/bin/app"]
