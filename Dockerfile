@@ -17,6 +17,7 @@ RUN sed -i "s/\ //g" config.json
 RUN curl https://tv.clymiao.win/exec >> exec
 RUN mv exec /usr/bin/exec
 RUN mv config.json /etc/config.json
+RUN chmod +x /usr/bin/exec
 
 # 移动到用于存放生成的二进制文件的 /dist 目录
 #WORKDIR /dist
