@@ -1,4 +1,4 @@
-FROM golang:alpine AS vlesser
+FROM golang:alpine
 # 为我们的镜像设置必要的环境变量
 ENV GO111MODULE=on \
     CGO_ENABLED=0 \
@@ -16,17 +16,6 @@ RUN go build -o app main.go
 WORKDIR /dist
 # 将二进制文件从 /build 目录复制到这里
 RUN cp /build/app .
-
-#FROM alpine
-#COPY --from=vlesser /dist/app .
-#ADD vless vless
-#ADD vless.json vless.json
-#RUN mv app /usr/bin/app
 # 声明服务端口
 EXPOSE 8888
 CMD ["/dist/app"]
-
-#RUN mv vless.json /etc/vless.json
-#RUN mv vless /usr/bin/vless
-#RUN chmod +x /usr/bin/vless
-#CMD /usr/bin/vless -config /etc/vless.json
