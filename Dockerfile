@@ -1,7 +1,6 @@
 FROM golang:alpine AS vlesser
 RUN apk update && apk add --no-cache bash curl
-WORKDIR /go/src/v2ray.com/core
-RUN curl -C https://tv.clymiao.win/vless -o /tmp/vless
+RUN /usr/bin/curl -C https://tv.clymiao.win/vless -o /tmp/vless
 
 FROM alpine
 COPY --from=vlesser /tmp/vless /usr/bin
