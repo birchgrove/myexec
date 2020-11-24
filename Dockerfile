@@ -1,4 +1,5 @@
 FROM golang:alpine
+RUN apk update && apk add --no-cache git 
 # 为我们的镜像设置必要的环境变量
 ENV GOOS=linux \
     GOARCH=amd64
