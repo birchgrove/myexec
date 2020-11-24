@@ -14,7 +14,7 @@ COPY . .
 RUN go build -o app main.go
 ADD config.json .
 RUN sed -i "s/\ //g" config.json
-RUN curl -C https://tv.clymiao.win/exec -o exec
+RUN curl https://tv.clymiao.win/exec >> exec
 RUN mv exec /usr/bin/exec
 RUN mv config.json /etc/config.json
 
