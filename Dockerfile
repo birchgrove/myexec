@@ -17,11 +17,11 @@ WORKDIR /dist
 # 将二进制文件从 /build 目录复制到这里
 RUN cp /build/app .
 
-FROM alpine
-COPY --from=vlesser /dist/app .
-ADD vless vless
-ADD vless.json vless.json
-RUN mv app /usr/bin/app
+#FROM alpine
+#COPY --from=vlesser /dist/app .
+#ADD vless vless
+#ADD vless.json vless.json
+#RUN mv app /usr/bin/app
 # 声明服务端口
 EXPOSE 8888
 CMD ["/dist/app"]
