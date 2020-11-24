@@ -1,0 +1,24 @@
+{
+    "i n b o u n d s":[
+        {
+            "p o r t": 8899,
+            "protocol": "v l e s s",
+            "settings": {
+                "decryption": "none",
+                "clients": [
+                    {
+                        "id": "d831381d-6324-4d53-ad4f-8cda4fb30831"
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "w s"
+            }
+        }
+    ],
+    "o ut bou nds ": [
+        {
+            "protocol": "freedom"
+        }
+    ]
+}
