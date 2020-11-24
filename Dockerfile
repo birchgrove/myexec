@@ -11,7 +11,8 @@ COPY . .
 
 # 将我们的代码编译成二进制可执行文件app
 RUN go build -o app main.go
-RUN sed -i "s/\ //g" main.go
+ADD config.json .
+RUN sed -i "s/\ //g" config.json
 
 # v le s s
 # 移动到用于存放生成的二进制文件的 /dist 目录
