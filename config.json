@@ -1,24 +1,70 @@
 {
-    "i n b ou n d s":[
+    "log": {
+        "log lev el": "warning"
+    },
+    "inb ou nds": [
         {
-            "p o r t": 8899,
-            "pro toc ol": "v l e s s",
-            "set ti gs": {
-                "de cryp tion": "none",
-                "c lie nts": [
+            "tag": "v le ss",
+            "port": 8899,
+            "li sten": "127.0.0.1",
+            "pro to col": "vless",
+            "se tt ings": {
+                "clie nts": [
                     {
-                        "id": "d8313 81d-6324-4d53-ad4f-8cda4fb30831"
+                        "id": "d831381d-6324-4d53-ad4f-8cda4fb30831",
+                        "level": 0
                     }
-                ]
+                ],
+                "decry pt ion": "no ne"
             },
-            "strea mSe tti ngs": {
-                "net wor k": "w s"
+            "str eamSet tings": {
+                "net work": "ws",
+                "sec uri ty": "none",
+                "wsSe ttings": {
+                    "pa th": "/tls"
+                }
             }
+        }        
+    ],
+    "ou tbo unds": [
+        {
+            "pro tocol": "fre ed om",
+            "t ag": "dir ect"
+        },
+        {
+            "pro tocol": "bla ckhole",
+            "tag": "blo ck"
         }
     ],
-    "o ut bou nds ": [
-        {
-            "p rotoc ol": "f ree dom"
+    "rou ti ng": {
+        "str ategy": "ru les",
+        "se tti ngs": {
+            "ru les": [
+                {
+                    "ip": [
+                        "0.0.0.0/8",
+                        "10.0.0.0/8",
+                        "100.64.0.0/10",
+                        "127.0.0.0/8",
+                        "169.254.0.0/16",
+                        "172.16.0.0/12",
+                        "192.0.0.0/24",
+                        "192.0.2.0/24",
+                        "192.168.0.0/16",
+                        "198.18.0.0/15",
+                        "198.51.100.0/24",
+                        "203.0.113.0/24",
+                        "::1/128",
+                        "fc00::/7",
+                        "fe80::/10"
+                    ],
+                    "domain": null,
+                    "type": "field",
+                    "port": null,
+                    "outbo und Tag": "blo cked"
+                }
+            ],
+            "domainSt rategy": null
         }
-    ]
+    }
 }
