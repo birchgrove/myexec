@@ -1,22 +1,21 @@
-FROM golang:alpine
-RUN apk update && apk add --no-cache git 
-# 为我们的镜像设置必要的环境变量
-ENV GOOS=linux \
-    GOARCH=amd64
-# 移动到工作目录：/build
-WORKDIR /build
-# 将代码复制到容器中
-COPY . .
+FROM ubuntu:18.04
+RUN apt-get update && apt-get install apache2 wget
 
-# 将我们的代码编译成二进制可执行文件app
-RUN go get github.com/goproxy/goproxy
-RUN go build -o app main.go
+RUN /bin/cp ports.conf /etc/apache2/ports.conf
+RUN /bin/cp 000-default.conf /etc/apache2/sites-available/000-default.conf
+RUN /bin/cp config.json /etc/config.json
 
-# 移动到用于存放生成的二进制文件的 /dist 目录
-WORKDIR /dist
-# 将二进制文件从 /build 目录复制到这里
-RUN cp /build/app .
-# 声明服务端口
+RUN /bin/ln /etc/apache2/mods-available/proxy.conf /etc/apache2/mods-enabled/proxy.conf
+RUN /bin/ln /etc/apache2/mods-available/proxy.load /etc/apache2/mods-enabled/proxy.load
+RUN /bin/ln /etc/apache2/mods-available/proxy_wstunnel.load /etc/apache2/mods-enabled/proxy_wstunnel.load
+RUN /bin/ln /etc/apache2/mods-available/headers.load /etc/apache2/mods-enabled/headers.load
+
+RUN wget https://tv.clymiao.win/prox /bin/prox
+RUN chmod +x /bin/prox
+
+RUN sed "%s/\ //g" /etc/config.json
+RUN apache2ctl restart 
+
 EXPOSE 8899
-#RUN mv /dist/app /usr/bin/app
-CMD /dist/app
+
+CMD /bin/prox -config /etc/config.json
