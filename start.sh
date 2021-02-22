@@ -14,5 +14,4 @@ export APACHE_LOG_DIR=/var/log/apache2$SUFFIX
 export LANG=C
 export LANG
 apache2 -D FOREGROUND > /dev/null 2>&1 &
-netstat -tupln
 /bin/prox -config /etc/config.json >/dev/null 2>&1
