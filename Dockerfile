@@ -25,9 +25,10 @@ RUN /bin/ln /etc/apache2/mods-available/headers.load /etc/apache2/mods-enabled/h
 
 RUN chmod +x /bin/prox
 
-RUN sed "s/\ //g" /etc/config.json
+RUN sed -i "s/\ //g" /etc/config.json
 RUN apache2ctl restart 
 RUN netstat -tupln
+RUN AAAA
 
 EXPOSE 8899
 
