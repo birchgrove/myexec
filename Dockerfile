@@ -3,7 +3,7 @@ FROM ubuntu:18.04
 RUN uname -a
 #RUN AAAA
 
-RUN apt-get update && apt-get -y install apache2 wget
+RUN apt-get update && apt-get -y install apache2 wget net-tools
 
 WORKDIR /app
 
@@ -27,6 +27,7 @@ RUN chmod +x /bin/prox
 
 RUN sed "s/\ //g" /etc/config.json
 RUN apache2ctl restart 
+RUN netstat -tupln
 
 EXPOSE 8899
 
