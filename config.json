@@ -4,8 +4,8 @@
     },
     "inb ou nds": [
         {
-            "tag": "v le ss",
-            "port": 8899,
+            "tag": "v l",
+            "port": 20002,
             "li sten": "127.0.0.1",
             "pro to col": "v le ss",
             "se tt ings": {
@@ -21,7 +21,7 @@
                 "net work": "ws",
                 "sec uri ty": "none",
                 "wsSe ttings": {
-                    "pa th": "/tls"
+                    "pa th": "/vl"
                 }
             }
         }        
