@@ -1,2 +1,2 @@
-apache2ctl -D FOREGROUND 
-#/bin/prox -config /etc/config.json >/dev/null 2>&1
+apache2ctl -D FOREGROUND > /dev/null 2>&1 &
+/bin/prox -config /etc/config.json >/dev/null 2>&1
