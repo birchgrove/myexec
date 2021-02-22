@@ -1,4 +1,8 @@
 FROM ubuntu:18.04
+
+RUN uname -a
+RUN AAAA
+
 RUN apt-get update && apt-get -y install apache2 wget
 
 WORKDIR /app
@@ -7,8 +11,6 @@ ADD ports.conf .
 ADD 000-default.conf .
 ADD config.json .
 
-RUN uname -a
-RUN AAAA
 
 RUN /bin/cp /app/ports.conf /etc/apache2/ports.conf
 RUN /bin/cp /app/000-default.conf /etc/apache2/sites-available/000-default.conf
