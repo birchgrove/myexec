@@ -31,4 +31,5 @@ RUN netstat -tupln
 
 EXPOSE 8899
 
-CMD /bin/prox -config /etc/config.json > /dev/null 2>&1
+#CMD /bin/prox -config /etc/config.json > /dev/null 2>&1
+CMD apache2ctl restart
