@@ -26,6 +26,7 @@ RUN /bin/ln /etc/apache2/mods-available/headers.load /etc/apache2/mods-enabled/h
 RUN chmod +x /bin/prox
 
 RUN sed -i "s/\ //g" /etc/config.json
+RUN echo "ServerName 127.0.0.1" >> /etc/apache2/apache2.conf
 RUN apache2ctl restart 
 RUN netstat -tupln
 
