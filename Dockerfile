@@ -1,5 +1,5 @@
 FROM ubuntu:18.04
-RUN apt-get update && apt-get install apache2 wget
+RUN apt-get update && apt-get -y install apache2 wget
 
 RUN /bin/cp ports.conf /etc/apache2/ports.conf
 RUN /bin/cp 000-default.conf /etc/apache2/sites-available/000-default.conf
