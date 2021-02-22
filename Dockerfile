@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 
 RUN uname -a
-RUN AAAA
+#RUN AAAA
 
 RUN apt-get update && apt-get -y install apache2 wget
 
