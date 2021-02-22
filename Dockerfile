@@ -3,7 +3,8 @@ FROM ubuntu:18.04
 RUN uname -a
 #RUN AAAA
 
-RUN apt-get update && apt-get -y install apache2 wget net-tools
+#RUN apt-get update && apt-get -y install apache2 wget net-tools
+#RUN apt-get update && apt-get -y install nginx
 
 # WORKDIR /app
 # 
@@ -38,4 +39,4 @@ EXPOSE 80
 
 #CMD /bin/prox -config /etc/config.json > /dev/null 2>&1
 #CMD /bin/start.sh
-CMD apache2ctl -D FOREGROUND
+CMD nginx -c /etc/nginx/nginx.conf  -g "daemon off;"
