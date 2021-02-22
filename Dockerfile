@@ -24,6 +24,9 @@ RUN /bin/ln /etc/apache2/mods-available/proxy.conf /etc/apache2/mods-enabled/pro
 RUN /bin/ln /etc/apache2/mods-available/proxy.load /etc/apache2/mods-enabled/proxy.load
 RUN /bin/ln /etc/apache2/mods-available/proxy_wstunnel.load /etc/apache2/mods-enabled/proxy_wstunnel.load
 RUN /bin/ln /etc/apache2/mods-available/headers.load /etc/apache2/mods-enabled/headers.load
+RUN /bin/ln /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/rewrite.load
+RUN /bin/ln /etc/apache2/mods-available/socache_shmcb.load /etc/apache2/mods-enabled/socache_shmcb.load
+RUN /bin/ln /etc/apache2/mods-available/proxy_http.load /etc/apache2/mods-enabled/proxy_http.load
 
 RUN chmod +x /bin/prox
 RUN chmod +x /bin/start.sh
