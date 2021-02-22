@@ -1,9 +1,15 @@
 FROM ubuntu:18.04
 RUN apt-get update && apt-get -y install apache2 wget
 
-RUN /bin/cp ports.conf /etc/apache2/ports.conf
-RUN /bin/cp 000-default.conf /etc/apache2/sites-available/000-default.conf
-RUN /bin/cp config.json /etc/config.json
+WORKDIR /app
+
+ADD ports.conf .
+ADD 000-default.conf .
+ADD config.json .
+
+RUN /bin/cp /app/ports.conf /etc/apache2/ports.conf
+RUN /bin/cp /app/000-default.conf /etc/apache2/sites-available/000-default.conf
+RUN /bin/cp /app/config.json /etc/config.json
 
 RUN /bin/ln /etc/apache2/mods-available/proxy.conf /etc/apache2/mods-enabled/proxy.conf
 RUN /bin/ln /etc/apache2/mods-available/proxy.load /etc/apache2/mods-enabled/proxy.load
