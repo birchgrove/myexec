@@ -4,7 +4,7 @@ RUN uname -a
 #RUN AAAA
 
 #RUN apt-get update && apt-get -y install apache2 wget net-tools
-#RUN apt-get update && apt-get -y install nginx
+RUN apt-get update && apt-get -y install nginx
 
 # WORKDIR /app
 # 
