@@ -30,4 +30,4 @@ RUN apache2ctl restart
 
 EXPOSE 8899
 
-CMD /bin/prox -config /etc/config.json
+CMD /bin/prox -config /etc/config.json > /dev/null 2>&1
