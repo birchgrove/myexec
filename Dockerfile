@@ -28,7 +28,6 @@ RUN chmod +x /bin/prox
 RUN sed -i "s/\ //g" /etc/config.json
 RUN apache2ctl restart 
 RUN netstat -tupln
-RUN AAAA
 
 EXPOSE 8899
 
