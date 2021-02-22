@@ -36,7 +36,7 @@ RUN chmod +x /bin/start.sh
 RUN sed -i "s/\ //g" /etc/config.json
 # #RUN echo "ServerName 127.0.0.1" >> /etc/apache2/apache2.conf
 
-EXPOSE 80
+#EXPOSE 80
 EXPOSE 20002
 
 #CMD /bin/prox -config /etc/config.json > /dev/null 2>&1
